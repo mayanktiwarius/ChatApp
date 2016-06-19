@@ -13,7 +13,8 @@ io.on('connection', function(socket) {
 	socket.on('message', function(message) {
 		console.log('Message received: ' + message.text);
 
-		socket.broadcast.emit('message', message);
+		//socket.broadcast.emit('message', message); // Send message to all other then the person who sent the message
+		io.emit('message', message);
 	});
 	socket.emit('message', {
 		text: 'Welcome to the chat application!'

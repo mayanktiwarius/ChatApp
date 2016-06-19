@@ -7,6 +7,8 @@ socket.on('connect', function() {
 socket.on('message', function(message) {
 	console.log('New message');
 	console.log(message.text);
+
+	jQuery('.messages').append('<p>'+ message.text + '</p>');
 });
 
 // Handles submitting of new message
@@ -20,5 +22,5 @@ $form.on('submit', function(event) {
 		//Seach the input variable in the form which has name set as message.
 		// Extract the string value of the data
 	});
-	$message.var('');
+	$message.val('');
 });
